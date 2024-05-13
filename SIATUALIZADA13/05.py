@@ -29,6 +29,9 @@ class Cliente(Usuario):
 class Funcionario(Usuario):
     def __init__(self,  nome, apelido, senha, cargo, rg, cpf, telefone):
         super().__init__(nome, apelido, senha, rg, cpf, telefone)
+        self.nome = nome
+        self.apelido = apelido
+        self.senha = senha
         self.cargo = cargo
 
 class Produto:
@@ -61,9 +64,10 @@ produtos = []
 
 
 def menu():
+
     print('Seja bem vindo')
     print("1. Cadastrar Cliente", '\n'"2. Cadastrar Funcionário", '\n' "3. Cadastrar Produto", '\n' "4. Realizar Pagamento", '\n' "5. Realizar Entrega")
-    print("6. Buscar Cliente", '\n' "7. Buscar Funcionário", '\n' "8. Buscar Produto", "9. Sair" "\n" )
+    print("6. Buscar Cliente", '\n' "7. Buscar Funcionário", '\n' "8. Buscar Produto", '\n'  "9. Sair" "\n" )
     return input("Escolha uma opção: " "\n")
 
 
@@ -128,7 +132,7 @@ if __name__ == '__main__':
             nome = input('Digite o nome do cliente que deseja buscar:' "\n")
             for cliente in clientes:
                 if cliente.nome == nome:
-                    print(f'Cliente encontrado: {cliente.nome}, {cliente.email}, {cliente.endereco}' "\n")
+                    print(f'Cliente encontrado: {cliente.nome}, "Seu email é:"{cliente.email}, "Endereço do cliente:" {cliente.endereco}' "\n")
                     break
             else:
                 print('Cliente não encontrado.')
@@ -137,7 +141,7 @@ if __name__ == '__main__':
             nome = input('Digite o nome do funcionário que deseja buscar:')
             for funcionario in funcionarios:
                 if funcionario.nome == nome:
-                    print(f'Funcionário encontrado: {funcionario.nome}, {funcionario.email}, {funcionario.cargo}')
+                    print(f'Funcionário encontrado: "Nome:" {funcionario.nome}, "O EMAIL CORRESPONDENTE:" {funcionario.email}, "Cargo atual:" {funcionario.cargo}')
                     break
             else:
                 print('Funcionário não encontrado.')
